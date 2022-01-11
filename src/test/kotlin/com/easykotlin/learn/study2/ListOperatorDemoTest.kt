@@ -16,4 +16,24 @@ class ListOperatorDemoTest {
     fun testListOperator1() {
         listOperatorDemo.listOperator1()
     }
+
+    @Test
+    fun testListOperator2() {
+        listOperatorDemo.listOperator2()
+    }
+
+    @Test
+    fun testListOperator3() {
+        listOperatorDemo.listOperator3()
+    }
+
+    @Test
+    fun testListOperator4() {
+        listOperatorDemo.listOperator4()
+    }
+
+    @Test
+    fun testListOperator5() {
+        listOperatorDemo.listOperator5()
+    }
 }
