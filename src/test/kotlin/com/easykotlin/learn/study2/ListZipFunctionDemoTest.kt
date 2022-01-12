@@ -21,4 +21,14 @@ class ListZipFunctionDemoTest {
     fun testTistUnZipFunction() {
         listZipFunctionDemo.listUnZipFunction()
     }
+
+    @Test
+    fun testListPartitionFunction() {
+        listZipFunctionDemo.listPartitionFunction()
+    }
+
+    @Test
+    fun testListPlusFunction() {
+        listZipFunctionDemo.listPlusFunction();
+    }
 }

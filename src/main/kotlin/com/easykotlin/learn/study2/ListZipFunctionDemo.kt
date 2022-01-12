@@ -52,4 +52,56 @@ class ListZipFunctionDemo {
         }
     }
 
+    fun listPartitionFunction() {
+        //partition(predicate: (T) -> Boolean): Pair<List<T>, List<T>>
+        //根据判断条件是否成立，将集合拆分成两个子集合组成的 Pair。
+        //我们可以直接看函数的定义来更加清晰的理解这个函数的功能：
+        val listNumber: List<Int> = listOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)
+        var partition: Pair<List<Int>, List<Int>> = listNumber.partition { it > 7 }
+        println(partition)
+        var firstNumber: List<Int> = partition.first
+        var secondNumber: List<Int> = partition.second
+        println("===================")
+        firstNumber.forEachIndexed() { index, element ->
+            println("index=${index},ele=${element}")
+        }
+        println("===================")
+        for (number: Int in secondNumber) {
+            println(number)
+        }
+
+        partition = listNumber.partition { it % 2 == 0 }
+        println(partition)
+        firstNumber = partition.first
+        secondNumber = partition.second
+        println("===================")
+        firstNumber.forEachIndexed() { index, element ->
+            println("index=${index},ele=${element}")
+        }
+        println("===================")
+        for (number: Int in secondNumber) {
+            println(number)
+        }
+    }
+
+    fun listPlusFunction() {
+        //plus(elements: Iterable<T>): List<T>
+        //合并两个List。这是一个操作符函数。可以用”+”替代 。
+        val listCity1: List<String> = listOf<String>("广州", "深圳", "珠海")
+        val listCity2: List<String> = listOf<String>("大连", "锦州", "沈阳")
+        var listCity: List<String> = listCity1 + listCity2
+        //var listCity: List<String> = listCity1.plus(listCity2)
+        println(listCity)
+
+        //plusElement(element: T): List<T>
+        //在集合中添加一个元素。
+        listCity = listCity.plusElement("武汉")
+        println(listCity)
+
+        listCity = listCity + "乌鲁木齐"
+        println(listCity)
+
+        println("====================")
+        listCity.forEach { println(it) }
+    }
 }
