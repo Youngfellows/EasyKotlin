@@ -218,6 +218,83 @@ class MapOperatorDemo {
         val heroMap: Map<Any?, Any?> = listHero.toMap()
         println(heroMap)
     }
+
+    fun mapOperator12() {
+        //Map<out K, V>.toMutableMap(): MutableMap<K, V>
+        //把一个只读的Map转换为可编辑的MutableMap。
+        val xiaoLongNv: Map<String, Any?> = mapOf<String, Any?>("name" to "小龙女", "age" to 18, "kunghu" to "玉女剑法")
+        //xiaoLongNv["city"] = "襄阳"
+        val xln: MutableMap<String, Any?> = xiaoLongNv.toMutableMap()
+        xln["city"] = "襄阳"
+        println(xln)
+        xln.entries.forEach {
+            val key: String = it.key
+            val value: Any? = it.value
+            println("${key}=${value}")
+        }
+    }
+
+    fun mapOperator13() {
+        //plus minus
+        //Map的加法运算符函数
+        val map1: Map<String, Any?> = mapOf<String, Any?>("name" to "令狐冲", "kunghu" to "独孤九剑", "age" to 19)
+        val map2: Map<String, Any?> = mapOf<String, Any?>("age" to 18, "city" to "华山")
+        println(map1)
+        println(map2)
+        var map: Map<String, Any?> = map1 + map2
+        println(map)
+
+        val map3: Map<Any?, Any?> = map1 - map2
+        println(map3)
+    }
+
+    fun mapOperator14() {
+        //put(key: K, value: V): V?
+        //根据key设置元素的value。如果该key存在就更新value；不存在就添加，但是put的返回值是null。
+        val mapYg: MutableMap<Any?, Any?> = mutableMapOf<Any?, Any?>("name" to "杨过", "age" to 18)
+        mapYg.put("kunghu", "流星蝴蝶剑")
+        mapYg["city"] = "武当"
+        println(mapYg)
+
+        //putAll(from: Map<out K, V>): Unit
+        //把一个Map全部添加到一个MutableMap中
+        val mapXLN: Map<Any?, Any?> = mapOf<Any?, Any?>(1 to "第一名", "wife" to "小龙女")
+        mapYg.putAll(mapXLN)
+        println(mapYg)
+    }
+
+    fun mapOperator15() {
+        //MutableMap<out K, V>.remove(key: K): V?
+        //根据键值key来删除元素。
+        val mapYg: MutableMap<Any?, Any?> =
+            mutableMapOf<Any?, Any?>(
+                Pair("name", "杨过"),
+                Pair("age", 18),
+                Pair("kunghu", "玄铁剑法"),
+                Pair(1, "天下第一"),
+                Pair('C', "北京"),
+                Pair("wife", "小龙女")
+            )
+
+        println(mapYg)
+        mapYg.remove(1)
+        println(mapYg)
+
+        mapYg.entries.forEach {
+            val key: Any? = it.key
+            val value: Any? = it.value
+            println("${key}=${value}")
+        }
+        println("==================================")
+
+        //MutableMap<K, V>.clear(): Unit
+        //清空MutableMap
+        mapYg.clear()
+        println(mapYg)
+        val size: Int = mapYg.size
+        val isEmpty: Boolean = mapYg.isEmpty()
+        println("size=${size},isEmpty=${isEmpty}")
+    }
 }
 
 /**

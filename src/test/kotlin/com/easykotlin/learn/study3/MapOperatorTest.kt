@@ -66,4 +66,24 @@ class MapOperatorTest {
     fun testMapOperator11() {
         mapOperatorDemo.mapOperator11()
     }
+
+    @Test
+    fun testMapOperator12() {
+        mapOperatorDemo.mapOperator12()
+    }
+
+    @Test
+    fun testMapOperator13() {
+        mapOperatorDemo.mapOperator13()
+    }
+
+    @Test
+    fun testMapOperator14() {
+        mapOperatorDemo.mapOperator14()
+    }
+
+    @Test
+    fun testMapOperator15() {
+        mapOperatorDemo.mapOperator15()
+    }
 }
