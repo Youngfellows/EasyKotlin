@@ -1,7 +1,5 @@
 package com.easykotlin.learn.study5
 
-import javafx.scene.text.FontWeight
-
 /**
  * 具体实现类
  */
