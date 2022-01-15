@@ -66,4 +66,49 @@ class ObjectOrientedTest {
         //不能设置属性
         //teacher.hobby = "打篮球"
     }
+
+    @Test
+    fun testIJKPlayer() {
+        val ijkPlayer: IJKPlayer = IJKPlayer()
+        val kernel: String? = ijkPlayer.kernel
+        //val mode: PlayMode = ijkPlayer.mode
+        //println("kernel=$kernel,mode=$mode")
+        //ijkPlayer.kernel = "QQPlayer" //不能设置
+        //ijkPlayer.mode = PlayMode.SINGLE_PLAY_MODE
+        println("kernel=$kernel,owner=${ijkPlayer.owner}")
+        ijkPlayer.onCreate()
+        ijkPlayer.onStart()
+        ijkPlayer.onNext()
+        ijkPlayer.onPrevious()
+        ijkPlayer.setMode(PlayMode.SINGLE_PLAY_MODE)
+        ijkPlayer.onStop()
+        ijkPlayer.onDestroy()
+    }
+
+    @Test
+    fun testAndroidSystem() {
+        val android: Android = Android("AndroiSystem", "Google", "CHINA")
+        val component: String = android.component()
+        val net: String = android.getNet()
+        val component1: String = android.component1()
+        println(component)
+        println(component1)
+        println("支持的网络:$net")
+    }
+
+    @Test
+    fun testHarmonyOS() {
+        val harmonyOS: HarmonyOS = HarmonyOS("HarmonyOS", "HUAWEI", "CHINA")
+        val system: String = harmonyOS.system
+        val owner: String = harmonyOS.owner
+        val country: String? = harmonyOS.country
+        val component: String = harmonyOS.component()
+        val component1: String = harmonyOS.component1()
+        val net: String = harmonyOS.getNet()
+
+        println("$system,$owner,$country")
+        println(component)
+        println(component1)
+        println(net)
+    }
 }
