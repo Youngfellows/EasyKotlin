@@ -47,4 +47,21 @@ class SingleInstanceDemoTest {
             println(it)
         })
     }
+
+    @Test
+    fun testRectangle() {
+        val topleft: Point = Point(0.0, 0.0)
+        val topright: Point = Point(2.0, 0.0)
+        val bottomleft: Point = Point(0.0, 2.0)
+        val bottomright: Point = Point(2.0, 2.0)
+        val rectangle = Rectangle("矩形", topleft, topright, bottomleft, bottomright)
+
+        val distance: Double = rectangle.distance(topright)
+        println("distance:${distance}")
+
+        rectangle.getFeatures()
+        //rectangle.getBorder().size//无法访问到
+        rectangle.compare()
+
+    }
 }
