@@ -111,4 +111,26 @@ class ObjectOrientedTest {
         println(component1)
         println(net)
     }
+
+    @Test
+    fun testMultipleInheritance() {
+        val dog: Dog = Dog("大黄")
+        dog.doEat()
+        dog.doRun()
+
+        val archaeopteryx: Archaeopteryx = Archaeopteryx("始祖鸟")
+        archaeopteryx.doEat()
+        archaeopteryx.doFly()
+        archaeopteryx.doFly()
+
+        val eagle: Eagle = Eagle("老鹰")
+        eagle.doEat()
+        eagle.doFly()
+
+        val duck: Duck = Duck("鸭子")
+        duck.doEat()
+        duck.doRun()
+        duck.doSwim()
+        duck.doFly()
+    }
 }
