@@ -124,4 +124,35 @@ class SingleInstanceDemoTest {
         val standardData: StandardData = StandardData()
         standardData.usePairData()
     }
+
+    @Test
+    fun testNested() {
+        //访问嵌套类的方式是直接使用 类名.， 有多少层嵌套，就用多少层类名来访问。
+        val one: Int = NestedClassesDemo.Outer().one
+        var two: Int = NestedClassesDemo.Outer.Nested1().two
+        val three: Int = NestedClassesDemo.Outer.Nested1.Nested2().three
+        val four: Int = NestedClassesDemo.Outer.Nested1.Nested2().getFour()
+        println(one)
+        println(two)
+        println(three)
+        println(four)
+
+        println("=========================================================")
+
+        //类可以标记为 inner 以便能够访问外部类的成员。内部类会带有一个对外部类的对象的引用
+        two = NestedClassesDemo.Outer().Nested().getTwo()
+        println(two)
+        NestedClassesDemo.Outer().Nested().accessOuter()
+    }
+
+    @Test
+    fun testAnonymousInnerClass() {
+        val anonymous: AnonymousInnerClassDemo = AnonymousInnerClassDemo()
+        anonymous.doRun()
+        anonymous.doStop()
+        anonymous.doWait()
+        anonymous.doNotify()
+        anonymous.doStart()
+        anonymous.doCreate()
+    }
 }
