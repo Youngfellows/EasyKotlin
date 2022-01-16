@@ -62,6 +62,26 @@ class SingleInstanceDemoTest {
         rectangle.getFeatures()
         //rectangle.getBorder().size//无法访问到
         rectangle.compare()
+    }
 
+    @Test
+    fun testCompanionObject() {
+        //创建伴生对象
+        val httpUtils: CompanionObject.HttpUtils = CompanionObject.HttpUtils
+        val connect: Boolean = httpUtils.connect(120.0)
+        println("connect:${connect}")
+
+        //私有构造不能new,通过伴生对象,单例来创建私有对象
+        //一个类的伴生对象默认引用名是Companion
+        val qqPlayer: QQPlayer = QQPlayer.create()
+        qqPlayer.onCreate()
+        println(qqPlayer.kernel)
+
+        //我们可以直接像在Java静态类中使用静态方法一样使用一个类的伴生对象的函数，属性(但是在运行时，它们依旧是实体的实例成员)
+        //Companion可以省略不写
+        /*val qqPlayer: QQPlayer = QQPlayer.INSTANCE.create()
+        qqPlayer.onCreate()*/
+        println(QQPlayer.kernel_)
+        println(QQPlayer.INSTANCE.getArea())
     }
 }
