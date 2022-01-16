@@ -84,4 +84,44 @@ class SingleInstanceDemoTest {
         println(QQPlayer.kernel_)
         println(QQPlayer.INSTANCE.getArea())
     }
+
+    @Test
+    fun testSealedObject() {
+        val expression: ExpressionDemo = ExpressionDemo()
+        val a: Double = expression.eval(Expression.Unit())
+        val b: Double = expression.eval(Expression.Const(3.0))
+        val c: Double = expression.eval(Expression.Sum(Expression.Const(4.0), Expression.Const(5.0)))
+        val d: Double = expression.eval(Expression.Multiply(Expression.Const(4.5), Expression.Const(5.5)))
+        val e: Double = expression.eval(Expression.NaN)
+        println("a=${a}")
+        println("b=${b}")
+        println("c=${c}")
+        println("d=${d}")
+        println("e=${e}")
+    }
+
+    @Test
+    fun testDataObject() {
+        //var book: Book = Book("史记", 1280, 999.0, "司马迁")
+        var book: Book = Book("史记", 1280, 999.0, "司马迁", "中华书局", 33)
+        var des: String = book.getDes()
+        println(des)
+
+        //在一些场景下，我们需要复制一个对象来改变它的部分属性，而其余部分保持不变。
+        //copy() 函数就是为此而生成
+        book = book.copy(price = 389.0)
+        des = book.getDes()
+        println(des)
+
+        val size: Int = book.size
+        val weight: Double = book.getWeight()
+        val year: Int? = book.getYear()
+        println("size=${size},weitht=${weight},year=${year}")
+    }
+
+    @Test
+    fun testUsePairData() {
+        val standardData: StandardData = StandardData()
+        standardData.usePairData()
+    }
 }
