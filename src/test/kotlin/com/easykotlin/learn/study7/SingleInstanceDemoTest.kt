@@ -155,4 +155,87 @@ class SingleInstanceDemoTest {
         anonymous.doStart()
         anonymous.doCreate()
     }
+
+    @Test
+    fun testProxyObject() {
+        //不使用委托类,直接调用
+        val forum = WorldEconomicForum("世界经济论坛", "深圳")
+        var oration: String = forum.oration()
+        var share: String = forum.share()
+        var outcome: String = forum.outcome()
+        println(oration)
+        println(share)
+        println(outcome)
+
+        println("=====================================")
+
+        //使用委托代理调用
+        val proxyForum: IForum = ProxyForum(forum)
+        oration = proxyForum.oration()
+        share = proxyForum.share()
+        outcome = proxyForum.outcome()
+        println(oration)
+        println(share)
+        println(outcome)
+    }
+
+    @Test
+    fun testProxyProperties() {
+        val delegatePropertiesBook: DelegatePropertiesBook = DelegatePropertiesBook()
+        try {
+            //获取被委托属性
+            var content: String = delegatePropertiesBook.content
+            println(content)
+
+            //更新被委托属性
+            delegatePropertiesBook.content = "这本书是司马迁写的关于汉武帝的《汉武本记》"
+            content = delegatePropertiesBook.content
+            println(content)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    @Test
+    fun testLazyProperty() {
+        val lazyProperty: LazyProperty = LazyProperty()
+        lazyProperty.lazyDemo1()
+
+        println("===================")
+        lazyProperty.lazyDemo2()
+
+        println("===================")
+        lazyProperty.lazyDemo3()
+
+        println("===================")
+        lazyProperty.lazyDemo4()
+    }
+
+    @Test
+    fun testObservableProperty() {
+        val observableProperty: ObservableProperty = ObservableProperty()
+        observableProperty.observableDemo()
+    }
+
+    @Test
+    fun testVetoableProperty() {
+        val vetoableProperty: VetoableProperty = VetoableProperty()
+        vetoableProperty.vetoableDemo()
+
+        println("======================")
+
+        vetoableProperty.notNullDemo()
+    }
+
+    @Test
+    fun testHero() {
+        val heroMap: MutableMap<String, Any?> = mutableMapOf<String, Any?>(
+            Pair("name", "杨过"),
+            "age" to 18,
+            Pair("money", 987.66),
+            Pair("wife", "小龙女")
+        )
+        val hero: Hero = Hero(heroMap)
+        println(hero.toString())
+    }
 }
