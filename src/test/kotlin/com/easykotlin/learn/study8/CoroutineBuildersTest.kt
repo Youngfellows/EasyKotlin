@@ -44,4 +44,10 @@ class CoroutineBuildersTest {
             println(it)
         }
     }
+
+    @Test
+    fun testCreateCoroutine() {
+        val coroutineScope: CoroutineScope = CoroutineScope()
+        coroutineScope.createCoroutine()
+    }
 }
