@@ -47,7 +47,7 @@ class KotlinUsingJavaTest {
         //println(television)
 
         //如果一个 Java 方法返回 void，那么从 Kotlin 调用时中返回 Unit。
-        val result: Unit = television.introduce() //kotlin.Unit
+        val result: Unit = television.introduce(3, "beijing") //kotlin.Unit
         println(result)
     }
 
@@ -82,4 +82,28 @@ class KotlinUsingJavaTest {
         println(result)
     }
 
+    /**
+     * 使用反射
+     */
+    @Test
+    fun testReflect() {
+        val television: Television = Television()
+        val tClass: Class<out Television> = television::class.java
+        val canonicalName: String = tClass.canonicalName //返回类名
+        println(canonicalName)
+        //遍历属性
+        tClass.declaredFields.forEach {
+            println(it)
+        }
+
+        //遍历方法
+        tClass.declaredMethods.forEach {
+            //println(it.name)
+            println(it)
+            //遍历参数
+            it.parameters.forEach {
+                println(it)
+            }
+        }
+    }
 }

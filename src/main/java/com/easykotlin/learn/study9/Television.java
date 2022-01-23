@@ -65,7 +65,7 @@ public class Television {
     /**
      * 介绍
      */
-    public void introduce() {
+    public void introduce(int a, String city) {
         System.out.println(this.toString());
     }
 }
