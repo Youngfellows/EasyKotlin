@@ -1,10 +1,8 @@
 package com.easykotlin.learn.study9
 
-import com.alibaba.fastjson.JSON
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import java.beans.PropertyDescriptor
 import java.util.*
 
 @RunWith(JUnit4::class)
@@ -66,6 +64,22 @@ class KotlinUsingJavaTest {
         //println("name:${name}")
         val substring: String? = name?.substring(1)
         println("sub:${substring}")
+    }
+
+    /**
+     * 使用可变参数
+     */
+    @Test
+    fun testKotlinUsingJavaVarArgs() {
+        var array: Array<Any?> = arrayOf<Any?>(1, 2, 3)
+        //传递可变参数给java
+        var result: String = VarArgs.appendElement(*array)
+        println(result)
+
+        //传递可变参数给java
+        array = arrayOf<Any?>("apple", 1, 3, 4, 'A', 3.1415926)
+        result = VarArgs.appendElement(*array)
+        println(result)
     }
 
 }
