@@ -2,6 +2,8 @@ package com.easykotlin.learn.study11
 
 import io.mockk.*
 import io.mockk.impl.annotations.RelaxedMockK
+import org.hamcrest.CoreMatchers
+import org.hamcrest.MatcherAssert
 import org.junit.Before
 import org.junit.Test
 
@@ -45,5 +47,7 @@ class CaptureTest {
 
         //调用结果
         println(kid.money)
+        //验证结果
+        MatcherAssert.assertThat("1",CoreMatchers.`is`("1"))
     }
 }
