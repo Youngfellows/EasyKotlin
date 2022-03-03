@@ -59,7 +59,8 @@ class KotlinRegex {
      * @param input
      */
     fun verifyPassword2(input: String): Boolean {
-        val regex: Regex = Regex("^(?=.*[A-Za-z])(?=.*\\d)[\\da-zA-Z]$")
+        val regex: Regex = Regex("^(?=.*[A-Za-z])(?=.*\\d)[\\da-zA-Z]{8,}$")
+        //val regex: Regex = Regex("^(?=.*[A-Za-z])(?=.*\\d)[\\da-zA-Z]+$")
         val pattern = regex.toPattern()
         val matcher: Matcher = pattern.matcher(input)
         var isMatcher = false

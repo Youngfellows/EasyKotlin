@@ -69,7 +69,19 @@ class KotlinRegexTest {
         isMatche = kotlinRegex.verifyPassword2(input)
         println("isMatche=$isMatche")
 
-        input = "123"
+        input = "1"
+        isMatche = kotlinRegex.verifyPassword2(input)
+        println("isMatche=$isMatche")
+
+        input = "D"
+        isMatche = kotlinRegex.verifyPassword2(input)
+        println("isMatche=$isMatche")
+
+        input = "1a"
+        isMatche = kotlinRegex.verifyPassword2(input)
+        println("isMatche=$isMatche")
+
+        input = ""
         isMatche = kotlinRegex.verifyPassword2(input)
         println("isMatche=$isMatche")
     }
