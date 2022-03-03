@@ -17,6 +17,64 @@ class KotlinRegexTest {
     }
 
     @Test
+    fun testVerifyPassword() {
+        var input: String = "www.baidu.com@136?ha*o>ya"
+        var isMatche: Boolean = kotlinRegex.verifyPassword(input)
+        println("isMatche=$isMatche")
+
+        input = "iloveshenzheng"
+        isMatche = kotlinRegex.verifyPassword(input)
+        println("isMatche=$isMatche")
+
+        input = "ni hao ya"
+        isMatche = kotlinRegex.verifyPassword(input)
+        println("isMatche=$isMatche")
+
+        input = "wwwbaiducom<"
+        isMatche = kotlinRegex.verifyPassword(input)
+        println("isMatche=$isMatche")
+
+        input = "123wwwbaiducom>"
+        isMatche = kotlinRegex.verifyPassword(input)
+        println("isMatche=$isMatche")
+
+        input = """123wwwba《idu》com+345|33\\44+55*66/77?99google"""
+        isMatche = kotlinRegex.verifyPassword(input)
+        println("isMatche=$isMatche")
+
+        input = "   xxxyyyy123"
+        isMatche = kotlinRegex.verifyPassword(input)
+        println("isMatche=$isMatche")
+
+        input = "xxxyyyy123444"
+        isMatche = kotlinRegex.verifyPassword(input)
+        println("isMatche=$isMatche")
+    }
+
+    @Test
+    fun testVerifyPassword2() {
+        var input: String = "123abcde"
+        var isMatche: Boolean = kotlinRegex.verifyPassword2(input)
+        println("isMatche=$isMatche")
+
+        input = "ABCd1234efGh"
+        isMatche = kotlinRegex.verifyPassword2(input)
+        println("isMatche=$isMatche")
+
+        input = "abcdefAghijk"
+        isMatche = kotlinRegex.verifyPassword2(input)
+        println("isMatche=$isMatche")
+
+        input = "987654321"
+        isMatche = kotlinRegex.verifyPassword2(input)
+        println("isMatche=$isMatche")
+
+        input = "123"
+        isMatche = kotlinRegex.verifyPassword2(input)
+        println("isMatche=$isMatche")
+    }
+
+    @Test
     fun testContainsMatchInDemo() {
         kotlinRegex.containsMatchInDemo()
     }

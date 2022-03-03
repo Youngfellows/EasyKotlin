@@ -37,6 +37,41 @@ class KotlinRegex {
     }
 
     /**
+     * 是否含有特殊字符
+     * @param input
+     */
+    fun verifyPassword(input: String): Boolean {
+        //< > + \ | / * ?
+        val regex: Regex = Regex("[\\s\n\\`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】《》‘；：”“’。， 、？]+")
+        val pattern = regex.toPattern()
+        val matcher: Matcher = pattern.matcher(input)
+        var isMatcher = false
+        while (matcher.find()) {
+            val s = matcher.group()
+            isMatcher = true
+            println(s)
+        }
+        return isMatcher
+    }
+
+    /**
+     * 至少八个字符，至少一个字母和一个数字
+     * @param input
+     */
+    fun verifyPassword2(input: String): Boolean {
+        val regex: Regex = Regex("^(?=.*[A-Za-z])(?=.*\\d)[\\da-zA-Z]$")
+        val pattern = regex.toPattern()
+        val matcher: Matcher = pattern.matcher(input)
+        var isMatcher = false
+        while (matcher.find()) {
+            val s = matcher.group()
+            isMatcher = true
+            println(s)
+        }
+        return isMatcher
+    }
+
+    /**
      * 输入字符串中至少有一个匹配就返回true，没有一个匹配就返回false
      */
     fun containsMatchInDemo() {
