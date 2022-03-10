@@ -174,6 +174,34 @@ class KotlinRegexTest {
     }
 
     @Test
+    fun testVerify() {
+        var input: String = "da1@Otto"
+        var isMatche1: Boolean = kotlinRegex.verifyPassword3(input)
+        println("isMatche1:$isMatche1")
+        //input = "da1@0tto"
+        val isMatche2: Boolean = kotlinRegex.verifyPassword6(input)
+        println("isMatche2:$isMatche2")
+        input = "da1x0tto"
+        val isMatche3: Boolean = kotlinRegex.verifyPassword6(input)
+        println("isMatche3:$isMatche3")
+        input = "da1@0tt"
+        val isMatche4: Boolean = kotlinRegex.verifyPassword5(input)
+        println("isMatche4:$isMatche4")
+        input = "da1?0tto"
+        val isMatche5: Boolean = kotlinRegex.verifyPassword5(input)
+        println("isMatche5:$isMatche5")
+        input = "1234567"
+        val isMatche6: Boolean = kotlinRegex.verifyPassword5(input)
+        println("isMatche6:$isMatche6")
+        input = "abcdefg"
+        val isMatche7: Boolean = kotlinRegex.verifyPassword5(input)
+        println("isMatche7:$isMatche7")
+        input = "ab2defgh"
+        val isMatche8: Boolean = kotlinRegex.verifyPassword5(input)
+        println("isMatche8:$isMatche8")
+    }
+
+    @Test
     fun testContainsMatchInDemo() {
         kotlinRegex.containsMatchInDemo()
     }
