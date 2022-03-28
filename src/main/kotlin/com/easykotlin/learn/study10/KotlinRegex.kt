@@ -42,7 +42,7 @@ class KotlinRegex {
      */
     fun verifyPassword(input: String): Boolean {
         //< > + \ | / * ?
-        val regex: Regex = Regex("[\\s\n\\`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】《》‘；：”“’。， 、？]+")
+        val regex: Regex = Regex("[\\s\n\\\\`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】《》‘；：”“’。， 、？]+")
         val pattern = regex.toPattern()
         val matcher: Matcher = pattern.matcher(input)
         var isMatcher = false
@@ -91,7 +91,7 @@ class KotlinRegex {
      * @param input
      */
     fun verifyPassword3(input: String): Boolean {
-        val regex: Regex = Regex("[\\s\n\\`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】《》‘；：”“’。， 、？]+")
+        val regex: Regex = Regex("[\\s\n\\\\`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】《》‘；：”“’。， 、？]+")
         return regex.containsMatchIn(input)
     }
 
